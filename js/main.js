@@ -17,14 +17,15 @@ class DomElement {
             div = document.createElement('p');
             div.id = this.selector.slice(1);
         }
-        div.style.height = this.height + 'px';
-        div.style.width = this.width + 'px';
-        div.style.backgroundColor = this.bg;
-        div.style.fontSize = this.fontSize + 'px';
+        div.style.cssText = `height: ${this.height}px;
+        width: ${this.width}px;
+        background-color: ${this.bg};
+        font-size: ${this.fontSize}px;
+        `;
         div.textContent = 'Привет';
         document.body.append(div);
     }
 }
 
-let elem = new DomElement(prompt('selector'), prompt('height'), prompt('width'), prompt('bg'), prompt('fontSize'));
+let elem = new DomElement('.class', 300, 500, 'purple', 20);
 elem.newCreateElement();
